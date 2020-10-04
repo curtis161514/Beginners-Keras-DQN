@@ -116,13 +116,15 @@ for e in range(num_episodes):
         #print(Q_now)
 
 
-        #bellman update
-        Y= Q_now.copy()
-        
+        #if the replay buffer has less than the batch sample size just use whats we have
+        #for the bellman update
         if mem_counter < batch_size:
             num_samples = mem_counter
         else: 
             num_samples = batch_size
+        
+        #bellman update
+        Y= Q_now.copy()
         
         for q in range(num_samples):
             Y[q,sample_a[q]] = sample_r[q] + gamma *max(Q_next[q])*buffer_done[q]

@@ -1,6 +1,6 @@
-from keras.layers import Dense, Activation
-from keras.models import Sequential
-from keras.optimizers import Adam
+from tensorflow.keras.layers import Dense, Activation
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.optimizers import Adam
 import numpy as np
 import gym
 import tensorflow as tf
